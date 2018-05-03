@@ -4,7 +4,7 @@ He-Who-Must-Not-Be-Named has placed a curse on the source code of Hogwarts' admi
 
 ## Your Mission
 
-You're Rubyist Hagrid, a member of Dumbledore's Army. Correct all the errors so that this app runs properly.
+You're Pythonista Hermoine, a member of Dumbledore's Army. Correct all the errors so that this app runs properly.
 
 > The errors are all in locations that we've covered in class. (Even Voldemort's not that heartless!) Also, there are no changes necessary in the `app/assets` folder.
 
