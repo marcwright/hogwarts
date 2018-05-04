@@ -1,18 +1,14 @@
-from django.shortcuts import render, redirect
-from .forms import HouseForm, StudentForm
-from .models import House, Student
-
 def house_list(request):
     houses = House.objects.all()
-    return render(request, 'house_list.html', {'houses': houses})
+    return render(req, 'house_list.html', {'houses': houses})
 
 def house_detail(request, id):
     house = House.objects.get(id = id)
-    return render(request, 'house_detail.html', {'house': house})
+    return res(request, 'house_detail.html', {'house': house})
 
-def house_create(request):
+def house_create(response):
     if request.method == 'POST':
-        form = HouseForm(request.POST)
+        form = HouseForm(request.body)
         if form.is_valid:
             house = form.save()
             return redirect('house_detail', id = house.id)
@@ -23,7 +19,7 @@ def house_create(request):
 def house_update(request, id):
     house = House.objects.get(id = id)
     if request.method == 'POST':
-        form = HouseForm(request.POST, instance = house)
+        form = HouseForm(request.body, instance = house)
         if form.is_valid:
             house = form.save()
             return redirect('house_detail', id = house.id)
@@ -46,7 +42,7 @@ def student_detail(request, id):
 
 def student_create(request):
     if request.method == 'POST':
-        form = StudentForm(request.POST)
+        form = StudentForm(request.body)
         if form.is_valid:
             student = form.save()
             return redirect('student_detail', id = student.id)
@@ -57,7 +53,7 @@ def student_create(request):
 def student_update(request, id):
     student = Student.objects.get(id = id)
     if request.method == 'POST':
-        form = StudentForm(request.POST, instance = student)
+        form = StudentForm(request.body, instance = student)
         if form.is_valid:
             student = form.save()
             return redirect('student_detail', id = student.id)

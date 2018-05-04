@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class House(models.Model):
-    name = models.CharField(default = '', max_length = 100)
+    name = models.CharField(default = '')
     image_url = models.CharField(default = '', max_length = 512)
 
     def __str__(self):
