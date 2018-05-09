@@ -12,7 +12,11 @@ You're Pythonista Hermoine, a member of Dumbledore's Army. Correct all the error
 
 ## Submission
 
-Fork and clone this repo. Once you have made the necessary corrections, push your changes and submit a pull request. 
+
+
+1. Fork and clone this repo. 
+2. Add `.env/` and `__pycache__/` to the project `.gitignore`.
+3. Once you have made the necessary corrections, push your changes and submit a pull request. 
 
 ## Bonus
 
