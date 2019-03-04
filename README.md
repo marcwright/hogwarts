@@ -19,7 +19,7 @@ nothing works.
 1. Install dependencies.
 1. Fulfill the listed requirements.
 
-Be sure to add `.env/` and `__pycach__/` to the project `.gitignore`
+Be sure to add `.env/` and `__pycache__/` to the project `.gitignore`
 
 Please turn in your submission by the deadline on your cohort calendar.
 
@@ -31,6 +31,8 @@ You are Pythonista Hermoine, a member of Dumbledore's Army. Correct all the erro
 > not that heartless!)
 
 > Looking at files in VSCode with syntax highlighting may be helpful.
+
+> Read the error messages and start googling!
 
 ## Bonus
 
