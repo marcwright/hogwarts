@@ -19,8 +19,6 @@ nothing works.
 1. Install dependencies.
 1. Fulfill the listed requirements.
 
-Be sure to add `.env/` and `__pycache__/` to the project `.gitignore`
-
 Please turn in your submission by the deadline on your cohort calendar.
 
 ## Requirements
@@ -49,5 +47,5 @@ Take a moment to refamiliarize yourself with the [Plagiarism policy](https://git
 ## [License](LICENSE)
 
 1.  All content is licensed under a CC­BY­NC­SA 4.0 license.
-1.  All software code is licensed under GNU GPLv3. For commercial use or
+2.  All software code is licensed under GNU GPLv3. For commercial use or
     alternative licensing, please contact legal@ga.co.
