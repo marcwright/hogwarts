@@ -1,8 +1,14 @@
 from .models import House, Student
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import HouseForm, StudentForm
+from django.urls import reverse
 
 # https: // stackoverflow.com/questions/45135263/class-has-no-objects-member
+
+# INSERT INTO hogwarts_house(name, image_url) VALUES('marc', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Hogwarts_Castle_%2843281949792%29.jpg/1200px-Hogwarts_Castle_%2843281949792%29.jpg')
+
+# 'bytes' no attribute 'get' error
+# https://docs.djangoproject.com/en/3.0/topics/forms/modelforms/
 
 def house_list(request):
     houses = House.objects.all()
@@ -14,9 +20,9 @@ def house_detail(request, id):
     house = House.objects.get(id = id)
     return res(request, 'house_detail.html', {'house': house})
 
-def house_create(response):
+def house_create(request):
     if request.method == 'POST':
-        form = HouseForm(request.body)
+        form = HouseForm(request.POST)
         if form.is_valid:
             house = form.save()
             return redirect('house_detail', id = house.id)
@@ -44,16 +50,19 @@ def student_list(request):
     students = Student.objects.all()
     return render(request, 'student_list.html', {'students': students})
 
-def student_detail(request, id):
-    student = Student.objects.get(id = id)
+def student_detail(request, pk):
+    student = Student.objects.get(pk=pk)
     return render(request, 'student_detail.html', {'student': student})
 
 def student_create(request):
+    print(request.body)
     if request.method == 'POST':
-        form = StudentForm(request.body)
+        form = StudentForm(request.POST)
+        print(form)
         if form.is_valid:
             student = form.save()
-            return redirect('student_detail', id = student.id)
+            # print(student)
+            return redirect(reverse('student_detail', args=(student.id,)))
     else:
         form = StudentForm()
         return render(request, 'student_form.html', {'form': form})
