@@ -1,8 +1,13 @@
 from .models import House, Student
 from django.shortcuts import render
+from .forms import HouseForm, StudentForm
+
+# https: // stackoverflow.com/questions/45135263/class-has-no-objects-member
 
 def house_list(request):
     houses = House.objects.all()
+    # print(houses)
+    print(request)
     return render(request, 'house_list.html', {'houses': houses})
 
 def house_detail(request, id):

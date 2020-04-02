@@ -13,11 +13,11 @@
   <nav>
     <h1>Welcome to Hogwarts!</h1>
     <h2>
-      <a href="/houses"> View Houses</a> | <a href="/students"> View Students </a> | <a href="/students/new"> Enroll </a></h2>
+      <a href="{% url 'house_list' %}"> View Houses</a> | <a href="/students"> View Students </a> | <a href="/students/new"> Enroll </a></h2>
   </nav>
 
 
-  {% block body %}
+  {% block content %}
   {% endblock %}
 </body>
 </html>
