@@ -10,33 +10,33 @@ def house_list(request):
     return render(request, 'house_list.html', {'houses': houses})
 
 def house_detail(request, pk):
-    house = House.objects.get(pk=id)
-    return res(request, 'house_detail.html', {'house': house})
+    house = House.objects.get(pk=pk)
+    return render(request, 'house_detail.html', {'house': house})
 
 def house_create(request):
     if request.method == 'POST':
         form = HouseForm(request.POST)
         if form.is_valid:
             house = form.save()
-            return redirect('house_detail', id = house.id)
+            return redirect(reverse('house_detail', args=(house.id,)))
     else:
         form = HouseForm()
         return render(request, 'house_form.html', {'form': form})
 
 def house_update(request, pk):
-    house = House.objects.get(pk=id)
+    house = House.objects.get(pk=pk)
     if request.method == 'POST':
-        form = HouseForm(request.body, instance = house)
+        form = HouseForm(request.POST, instance = house)
         if form.is_valid:
             house = form.save()
-            return redirect('house_detail', id = house.id)
+            return redirect(reverse('house_detail', args=(house.id,)))
     else:
         form = HouseForm(instance = house)
         return render(request, 'house_form.html', {'form': form})
 
-def house_delete(request, id):
+def house_delete(request, pk):
     if request.method == 'POST':
-        House.objects.get(id = id).delete()
+        House.objects.get(pk=pk).delete()
     return redirect('house_list')
 
 def student_list(request):

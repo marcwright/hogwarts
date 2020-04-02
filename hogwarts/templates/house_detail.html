@@ -13,10 +13,11 @@
 
     <footer>
       <a href="/houses/{{house.id}}/edit"> Edit {{house.name}} </a>
-      <form action="/houses/{{house.id}}/delete">
+      <form action="/houses/{{house.id}}/delete"  method="POST">
         {% csrf_token %}
         <input type="submit" value="Delete {{house.name}}">
       </form>
     </footer>
+    {% endfor %}
   </div>
 {% endblock %}
