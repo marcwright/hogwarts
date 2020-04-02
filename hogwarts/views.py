@@ -1,6 +1,9 @@
+from .models import House, Student
+from django.shortcuts import render
+
 def house_list(request):
     houses = House.objects.all()
-    return render(req, 'house_list.html', {'houses': houses})
+    return render(request, 'house_list.html', {'houses': houses})
 
 def house_detail(request, id):
     house = House.objects.get(id = id)
